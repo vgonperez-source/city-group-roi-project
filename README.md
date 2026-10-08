@@ -1,34 +1,29 @@
-# Minería de Procesos & IA Predictiva para Auditoría y ROI (City Football Group) 2026
+# Minería de Procesos e IA Predictiva para Auditoría y ROI: Caso City Football Group
 
-![Python](https://img.shields.io/badge/Python-3.11-blue)
-![Pandas](https://img.shields.io/badge/Pandas-Data_Wrangling-yellow)
-![PM4Py](https://img.shields.io/badge/PM4Py-Process_Mining-orange)
-![Scikit-Learn](https://img.shields.io/badge/Scikit_Learn-Machine_Learning-green)
+## Contexto del Proyecto
+El crecimiento de las redes multiclub (Multi-Club Ownership) en el ecosistema del fútbol, como es el caso del City Football Group, ha incrementado significativamente el volumen de traspasos y cesiones internas. Este proyecto aborda dos retos principales de este modelo de negocio:
+1. Auditar de manera empírica el cumplimiento normativo frente a las regulaciones de la FIFA, analizando si las operaciones obedecen a un desarrollo deportivo o a modelos de ingeniería financiera especulativa.
+2. Predecir la viabilidad económica (Retorno de Inversión) de los fichajes antes de que se formalicen, con el objetivo de mitigar el riesgo de capital.
 
-## 📌 Contexto y Problema
-En el ecosistema del fútbol moderno, las redes multiclub (Multi-Club Ownership) como el **City Football Group** operan con un volumen de traspasos masivo entre sus franquicias satélite. 
-El objetivo de este proyecto es doble:
-1. **Auditar empíricamente la ingeniería financiera y el acaparamiento especulativo** frente a la normativa de protección de la FIFA.
-2. **Predecir la viabilidad económica (ROI)** de los nuevos fichajes en el "Momento Cero" (antes de la firma) para mitigar el riesgo de inversión.
+## Arquitectura y Metodología
+El análisis se ha estructurado en cuatro fases principales:
 
-## 🛠 Arquitectura y Pipeline de Datos
-1. **Data Wrangling (Pandas):** Ingesta y cruce relacional (*Left Joins*) de +1M de registros históricos de Transfermarkt para construir un *Event Log* unificado de la red City Group.
-2. **Process Discovery (PM4Py):** Modelado de la realidad (*Heuristic Nets* y *Directly-Follows Graphs*) evaluando variantes de cesión y tiempos de retención por franquicia.
-3. **Auditoría de Conformidad (Compliance):** Reglas matemáticas de validación frente a la normativa de 180 días mínimos por cesión.
-4. **Machine Learning Predictivo:** Entrenamiento y optimización vía *GridSearchCV* de un benchmark de clasificadores (SVM, Random Forest, KNN) aislando variables previas al fichaje para evitar fuga de datos (*Data Leakage*).
+- **Ingesta y Limpieza de Datos:** Extracción y cruce relacional de más de un millón de registros históricos del portal Transfermarkt utilizando Pandas. Se logró estructurar un Event Log unificado focalizado exclusivamente en la red del City Group.
+- **Descubrimiento de Procesos:** Aplicación de algoritmos de Process Mining mediante la librería PM4Py para modelar la realidad operativa. Se utilizaron Heuristic Nets y Directly-Follows Graphs para evaluar las distintas rutas de cesión y medir los tiempos de retención por club.
+- **Auditoría de Conformidad:** Implementación de lógicas de validación frente a la normativa de protección al jugador, enfocadas en la regla de permanencia mínima de 180 días.
+- **Machine Learning Predictivo:** Desarrollo de un modelo de clasificación comparando algoritmos (SVM, Random Forest, KNN) y optimizándolos vía GridSearchCV. Se utilizaron únicamente variables de scouting previas al fichaje para prevenir sesgos de fuga de datos (Data Leakage).
 
-## 📊 Resultados y Business Impact
+## Resultados Clave
+Los resultados del análisis se traducen en hallazgos directos para el control operativo y la inteligencia financiera:
 
-- **Auditoría Normativa:** Se aislaron **251 variantes de cesión**, evidenciando un modelo de negocio altamente especulativo con un **54.57% de conformidad**. Se detectaron **333 movimientos "exprés"** (cesiones puente ilegales de menos de 180 días).
-- **IA Predictiva:** La Máquina de Vectores de Soporte (SVM) optimizada obtuvo una **precisión global del 84.48%** y un **ROC AUC Score de 0.91**.
-- **Impacto Económico:** El modelo actúa como un blindaje financiero operando con **0 Falsos Positivos**, recomendando automáticamente descartar o aprobar operaciones para garantizar matemáticamente un **ROI neto > 10%**.
+- **Auditoría Normativa:** El modelado identificó 251 variantes de cesiones. La evaluación de conformidad arrojó un nivel de cumplimiento del 54.57%, detectando 333 operaciones de transferencia que incumplen el periodo de maduración de los 180 días.
+- **Precisión Predictiva:** La Máquina de Vectores de Soporte (SVM) optimizada obtuvo una precisión global del 84.48% y un ROC AUC de 0.91.
+- **Impacto de Negocio:** El sistema predictivo actúa como un filtro de riesgo que opera con cero Falsos Positivos. Esto permite evaluar inversiones garantizando una probabilidad matemática alta de obtener un ROI neto superior al 10%.
 
-## 🚀 Cómo reproducir este proyecto
-1. Clona el repositorio.
-2. Instala las dependencias:
-   ```bash
-   pip install -r requirements.txt
-   ```
-3. Ejecuta el Jupyter Notebook interactivo ubicado en la carpeta `notebooks/`.
+## Reproducibilidad
+Para ejecutar el código y revisar el análisis:
+1. Clona el repositorio en tu entorno local.
+2. Instala las dependencias necesarias: `pip install -r requirements.txt`
+3. Ejecuta el archivo Jupyter ubicado en la carpeta `notebooks/`.
 
-*(Nota: Los datasets en bruto se obtienen de Kaggle Transfermarkt Data, aquí solo se expone el Event Log final para la minería de procesos).*
+*Nota: Los datos en bruto originales proceden de Kaggle (Transfermarkt Data). Por restricciones de tamaño, el repositorio incluye únicamente el Event Log final estructurado.*
