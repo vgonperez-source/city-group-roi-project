@@ -1,4 +1,4 @@
-# Minería de Procesos e IA Predictiva para Auditoría y ROI en Redes Multiclub
+Minería de Procesos e IA Predictiva para Auditoría y ROI en Redes Multiclub
 
 ## Contexto del Proyecto
 El crecimiento de las redes multiclub en el mundo del fútbol ha aumentado el volumen de traspasos internos. Este proyecto nace para resolver dos problemas de este modelo. Primero, necesitamos auditar si las operaciones cumplen con las normativas de la FIFA, para ver si tienen sentido deportivo o son pura especulación financiera. Segundo, necesitamos poder predecir si un fichaje será rentable antes de hacerlo, para reducir el riesgo económico.
