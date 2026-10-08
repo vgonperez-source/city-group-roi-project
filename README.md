@@ -1,13 +1,27 @@
-# Minería de Procesos e IA Predictiva para Auditoría y ROI: Caso City Football Group
+# Minería de Procesos e IA Predictiva para Auditoría y ROI en Redes Multiclub
 
-El crecimiento de las redes multiclub en el mundo del fútbol ha aumentado mucho el volumen de traspasos internos. Este proyecto nace para resolver dos problemas de este modelo: auditar si las operaciones cumplen con las normativas de la FIFA, para ver si tienen sentido deportivo o son simple especulación financiera, y poder predecir si un fichaje será rentable antes de hacerlo, reduciendo el riesgo económico.
+## Contexto del Proyecto
+El crecimiento de las redes multiclub en el mundo del fútbol ha aumentado el volumen de traspasos internos. Este proyecto nace para resolver dos problemas de este modelo. Primero, necesitamos auditar si las operaciones cumplen con las normativas de la FIFA, para ver si tienen sentido deportivo o son pura especulación financiera. Segundo, necesitamos poder predecir si un fichaje será rentable antes de hacerlo, para reducir el riesgo económico.
 
-Para llevar a cabo el análisis, primero extraje y crucé más de un millón de registros históricos de Transfermarkt usando Pandas. Esto me permitió aislar los datos específicos del City Group y crear un registro de eventos limpio. Después, utilicé la librería PM4Py para aplicar minería de procesos y descubrir cómo operan realmente, midiendo los tiempos que los jugadores pasan en cada equipo y las diferentes rutas que siguen. 
+## Arquitectura y Metodología
+El análisis se ha dividido en cuatro fases principales de manera secuencial:
 
-Con esos datos, implementé una auditoría para comprobar si se respeta la norma de los 180 días mínimos por cesión. Finalmente, desarrollé un modelo predictivo comparando varios algoritmos (SVM, Random Forest y KNN) y usando solo variables previas al fichaje para que la predicción fuera realista y no tuviera sesgos.
+- Ingesta y limpieza de datos: Extraje y crucé más de un millón de registros históricos de Transfermarkt usando Pandas. Esto me permitió aislar los datos del City Group y crear un registro de eventos limpio.
+- Descubrimiento de procesos: Utilicé la librería PM4Py para aplicar minería de procesos y modelar la realidad operativa. Pude medir los tiempos que los jugadores pasan en cada equipo y las diferentes rutas que siguen.
+- Auditoría de conformidad: Implementé una lógica matemática para comprobar si las cesiones respetan la norma de los 180 días mínimos de permanencia.
+- Machine Learning predictivo: Desarrollé un modelo de clasificación comparando algoritmos como SVM, Random Forest y KNN. Usé solo variables previas al fichaje para que la predicción fuera realista y no tuviera sesgos de fuga de datos.
 
-Los resultados fueron muy reveladores. En la parte normativa, el modelo descubrió 251 rutas de cesión distintas y detectó que el nivel de cumplimiento es de apenas un 54%, encontrando más de 300 operaciones que se saltan el periodo mínimo de maduración. 
+## Resultados Clave
+Los resultados obtenidos aportan valor directo tanto al control normativo como a la inteligencia financiera del club:
 
-Por otro lado, el modelo predictivo que mejor funcionó fue la Máquina de Vectores de Soporte (SVM), alcanzando una precisión del 84% y un ROC AUC de 0.91. Lo más interesante a nivel de negocio es que el sistema funciona como un filtro sin falsos positivos, lo que significa que permite evaluar fichajes asegurando matemáticamente una probabilidad muy alta de conseguir un retorno de inversión neto superior al 10%.
+- Auditoría normativa: El modelo descubrió 251 rutas de cesión distintas y detectó que el nivel de cumplimiento es de apenas un 54%. Se encontraron más de 300 operaciones que se saltan el periodo mínimo de maduración de 180 días.
+- Precisión predictiva: El modelo que mejor funcionó fue la Máquina de Vectores de Soporte, alcanzando una precisión del 84.48% y un ROC AUC de 0.91.
+- Impacto de negocio: El sistema predictivo funciona como un filtro sin falsos positivos. Esto permite evaluar fichajes asegurando matemáticamente una probabilidad muy alta de conseguir un retorno de inversión neto superior al 10%.
 
-Si quieres ejecutar el código en tu equipo, solo necesitas clonar el repositorio e instalar las dependencias con el archivo requirements.txt. Luego puedes abrir y ejecutar el cuaderno principal que está en la carpeta notebooks. Por temas de tamaño, los datos originales de Transfermarkt no están incluidos, pero sí he dejado el registro de eventos final que se usa para el análisis.
+## Reproducibilidad
+Para ejecutar este código en tu propio equipo, solo necesitas seguir estos pasos:
+1. Clonar este repositorio.
+2. Instalar las dependencias ejecutando el comando pip install -r requirements.txt.
+3. Abrir y ejecutar el cuaderno principal que está dentro de la carpeta notebooks.
+
+Nota: Por restricciones de tamaño, los datos originales de Transfermarkt no están incluidos en la carpeta de datos, pero sí he dejado el registro de eventos final estructurado que se utiliza para el análisis.
